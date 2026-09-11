@@ -1,0 +1,141 @@
+.jobs-container {
+  background-color: #000000;
+  min-height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .jobs-container {
+    padding: 30px 50px;
+  }
+}
+
+.jobs-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1110px;
+}
+
+@media screen and (min-width: 768px) {
+  .jobs-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.search-mobile-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #475569;
+  border-radius: 4px;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .search-mobile-container {
+    display: none;
+  }
+}
+
+.search-desktop-container {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .search-desktop-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #475569;
+    border-radius: 4px;
+    width: 350px;
+    height: 40px;
+    margin-bottom: 24px;
+  }
+}
+
+.search-input {
+  background-color: transparent;
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 14px;
+  border: none;
+  outline: none;
+  padding: 8px 16px;
+  width: 85%;
+  height: 100%;
+}
+
+.search-button {
+  background-color: #272727;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 15%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-icon {
+  color: #f8fafc;
+  width: 16px;
+  height: 16px;
+}
+
+.jobs-section {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .jobs-section {
+    width: 70%;
+    margin-left: 30px;
+  }
+}
+
+.jobs-list {
+  padding-left: 0px;
+  list-style-type: none;
+  margin: 0px;
+}
+
+.no-jobs-container,
+.jobs-failure-container,
+.jobs-loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  text-align: center;
+}
+
+.no-jobs-img,
+.failure-img {
+  width: 250px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.no-jobs-heading,
+.failure-heading {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.no-jobs-description,
+.failure-description {
+  color: #64748b;
+  font-family: 'Roboto';
+  font-size: 16px;
+  margin-bottom: 20px;
+}
