@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import Cookie from 'js-cookie'
-import {ThreeDots} from 'react-loader-spinner'
+import Loader from 'react-loader-spinner'
 import {BsSearch} from 'react-icons/bs'
 
 import Header from '../Header'
@@ -133,7 +133,11 @@ class Jobs extends Component {
 
     const employmentTypes = activeEmploymentTypes.join(',')
     const locations = activeLocations.join(',')
-    const url = `https://apis.ccbp.in/jobs?employment_type=${employmentTypes}&minimum_package=${activeSalaryRange}&search=${searchInput}&location=${locations}`
+    let url = `https://apis.ccbp.in/jobs?employment_type=${employmentTypes}&minimum_package=${activeSalaryRange}&search=${searchInput}`
+    if (activeLocations.length > 0) {
+      url += `&location=${locations}`
+    }
+
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -155,7 +159,7 @@ class Jobs extends Component {
         title: eachJob.title,
       }))
 
-      // Apply client-side location filtering if activeLocations is non-empty
+      // Client-side location filtering fallback
       let filteredJobsList = updatedJobsList
       if (activeLocations.length > 0) {
         const activeLocationLabels = activeLocations.map(locId => {
@@ -236,7 +240,7 @@ class Jobs extends Component {
           />
           <h1 className="no-jobs-heading">No Jobs Found</h1>
           <p className="no-jobs-description">
-            We could not find any jobs. Try other filters.
+            We could not find any jobs. Try other filters
           </p>
         </div>
       )
@@ -260,7 +264,7 @@ class Jobs extends Component {
       />
       <h1 className="failure-heading">Oops! Something Went Wrong</h1>
       <p className="failure-description">
-        We cannot seem to find the page you are looking for.
+        We cannot seem to find the page you are looking for
       </p>
       <button
         type="button"
@@ -274,7 +278,7 @@ class Jobs extends Component {
 
   renderJobsLoadingView = () => (
     <div className="jobs-loader-container" data-testid="loader">
-      <ThreeDots color="#ffffff" height="50" width="50" />
+      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
     </div>
   )
 

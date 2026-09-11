@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import Cookie from 'js-cookie'
-import {ThreeDots} from 'react-loader-spinner'
+import Loader from 'react-loader-spinner'
 import {AiFillStar} from 'react-icons/ai'
 import {MdLocationOn} from 'react-icons/md'
 import {BsBriefcaseFill} from 'react-icons/bs'
@@ -190,7 +190,7 @@ class JobItemDetails extends Component {
       />
       <h1 className="failure-heading">Oops! Something Went Wrong</h1>
       <p className="failure-description">
-        We cannot seem to find the page you are looking for.
+        We cannot seem to find the page you are looking for
       </p>
       <button
         type="button"
@@ -204,7 +204,7 @@ class JobItemDetails extends Component {
 
   renderLoadingView = () => (
     <div className="job-details-loader-container" data-testid="loader">
-      <ThreeDots color="#ffffff" height="50" width="50" />
+      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
     </div>
   )
 

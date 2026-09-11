@@ -35,7 +35,6 @@ const Header = props => {
                 <BsBriefcaseFill className="nav-icon" />
               </Link>
             </li>
-
             <li className="nav-menu-item-mobile">
               <button
                 type="button"
@@ -62,20 +61,21 @@ const Header = props => {
                 Home
               </Link>
             </li>
-
             <li className="nav-menu-item">
               <Link to="/jobs" className="nav-link">
                 Jobs
               </Link>
             </li>
+            <li className="nav-menu-item">
+              <button
+                type="button"
+                className="logout-desktop-btn"
+                onClick={onClickLogout}
+              >
+                Logout
+              </button>
+            </li>
           </ul>
-          <button
-            type="button"
-            className="logout-desktop-btn"
-            onClick={onClickLogout}
-          >
-            Logout
-          </button>
         </div>
       </div>
     </nav>

@@ -1,6 +1,67 @@
 import React from 'react'
-import {ThreeDots} from 'react-loader-spinner'
+import Loader from 'react-loader-spinner'
 import './index.css'
+
+const defaultEmploymentTypesList = [
+  {
+    label: 'Full Time',
+    employmentTypeId: 'FULLTIME',
+  },
+  {
+    label: 'Part Time',
+    employmentTypeId: 'PARTTIME',
+  },
+  {
+    label: 'Freelance',
+    employmentTypeId: 'FREELANCE',
+  },
+  {
+    label: 'Internship',
+    employmentTypeId: 'INTERNSHIP',
+  },
+]
+
+const defaultSalaryRangesList = [
+  {
+    salaryRangeId: '1000000',
+    label: '10 LPA and above',
+  },
+  {
+    salaryRangeId: '2000000',
+    label: '20 LPA and above',
+  },
+  {
+    salaryRangeId: '3000000',
+    label: '30 LPA and above',
+  },
+  {
+    salaryRangeId: '4000000',
+    label: '40 LPA and above',
+  },
+]
+
+const defaultLocationsList = [
+  {
+    locationId: 'HYDERABAD',
+    label: 'Hyderabad',
+  },
+  {
+    locationId: 'BANGALORE',
+    label: 'Bangalore',
+  },
+  {
+    locationId: 'CHENNAI',
+    label: 'Chennai',
+  },
+  {
+    locationId: 'DELHI',
+    label: 'Delhi',
+  },
+  {
+    locationId: 'MUMBAI',
+    label: 'Mumbai',
+  },
+]
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -11,18 +72,18 @@ const apiStatusConstants = {
 
 const FiltersGroup = props => {
   const {
-    employmentTypesList,
-    salaryRangesList,
-    locationsList,
-    changeEmploymentType,
-    changeSalaryRange,
-    changeLocation,
-    activeEmploymentTypes,
-    activeSalaryRange,
-    activeLocations,
-    profileDetails,
-    profileApiStatus,
-    getProfileDetails,
+    employmentTypesList = defaultEmploymentTypesList,
+    salaryRangesList = defaultSalaryRangesList,
+    locationsList = defaultLocationsList,
+    changeEmploymentType = () => {},
+    changeSalaryRange = () => {},
+    changeLocation = () => {},
+    activeEmploymentTypes = [],
+    activeSalaryRange = '',
+    activeLocations = [],
+    profileDetails = {},
+    profileApiStatus = apiStatusConstants.initial,
+    getProfileDetails = () => {},
   } = props
 
   const renderProfileSuccessView = () => {
@@ -50,7 +111,7 @@ const FiltersGroup = props => {
 
   const renderProfileLoadingView = () => (
     <div className="profile-loader-container" data-testid="loader">
-      <ThreeDots color="#ffffff" height="50" width="50" />
+      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
     </div>
   )
 
